@@ -36,8 +36,6 @@ async function getRemote(url: string): Promise<string> {
     }
 }
 
-function setOutFile(arg: string) { return { outFile: arg }; }
-
 function parseCliArgs(cliArgs: string[]): parsedArgs {
     const isOption: RegExp = /^--/;
     
@@ -46,7 +44,7 @@ function parseCliArgs(cliArgs: string[]): parsedArgs {
     };
     
     const options: optionsObject = {
-        out: setOutFile
+        out: (args: string) => ({ outFile: args })
     };
     
     let option: string = '';
